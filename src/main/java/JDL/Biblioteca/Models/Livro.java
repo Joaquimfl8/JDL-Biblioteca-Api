@@ -1,5 +1,6 @@
 package JDL.Biblioteca.Models;
 
+@Getter @Setter
 public class Livro extends DbModel {
 
     private String titulo;

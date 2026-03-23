@@ -1,7 +1,10 @@
 package JDL.Biblioteca.Models;
 
 import JDL.Biblioteca.Enums.NivelPerm;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter @Setter
 public class Usuario extends DbModel{
 
     private String matricula;
@@ -25,55 +28,4 @@ public class Usuario extends DbModel{
         this.nivelPerm = nivelPerm; 
         this.senha = senha;
     }
-    
-    public String getMatricula() {
-        return matricula;
-    }
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    
-    public String getNumero() {
-        return numero;
-    }
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
-    public String getSerie() {
-        return serie;
-    }
-    public void setSerie(String serie) {
-        this.serie = serie;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public NivelPerm getNivelPerm() {
-        return nivelPerm;
-    }
-    public void setNivelPerm(NivelPerm nivelPerm) {
-        this.nivelPerm = nivelPerm;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-
 }

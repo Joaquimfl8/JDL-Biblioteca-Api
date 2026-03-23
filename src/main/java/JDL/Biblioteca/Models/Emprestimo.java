@@ -1,7 +1,10 @@
 package JDL.Biblioteca.Models;
 
 import java.time.LocalDate;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter @Setter
 public class Emprestimo extends DbModel {
 
     private LocalDate dataEmprestimo;
@@ -21,19 +24,4 @@ public class Emprestimo extends DbModel {
         this.precoDiaria = precoDiaria;
         this.qtDiasAtrasados = qtDiasAtrasados;
     }
-
-    public LocalDate getDataEmprestimo() { return dataEmprestimo; }
-    public void setDataEmprestimo(LocalDate dataEmprestimo) { this.dataEmprestimo = dataEmprestimo; }
-
-    public LocalDate getDataDevolucao() { return dataDevolucao; }
-    public void setDataDevolucao(LocalDate dataDevolucao) { this.dataDevolucao = dataDevolucao; }
-
-    public int getQtDiasEmprestados() { return qtDiasEmprestados; }
-    public void setQtDiasEmprestados(int qtDiasEmprestados) { this.qtDiasEmprestados = qtDiasEmprestados; }
-
-    public double getPrecoDiaria() { return precoDiaria; }
-    public void setPrecoDiaria(double precoDiaria) { this.precoDiaria = precoDiaria; }
-
-    public int getQtDiasAtrasados() { return qtDiasAtrasados; }
-    public void setQtDiasAtrasados(int qtDiasAtrasados) { this.qtDiasAtrasados = qtDiasAtrasados; }
 }
