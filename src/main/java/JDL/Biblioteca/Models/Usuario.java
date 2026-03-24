@@ -18,7 +18,7 @@ public class Usuario extends DbModel {
 
     public Usuario(int id, String matricula, String nome, String numero, 
                    String serie, String email, NivelPerm nivelPerm, String senha) {
-
+                    
         super(id);
 
         this.matricula = matricula;
