@@ -1,12 +1,21 @@
 package JDL.Biblioteca.Models;
 
 import JDL.Biblioteca.Enums.NivelPerm;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.annotation.Generated;
+import jakarta.persistence.Entity;
+import jakarta.persistence.*;
+import lombok.Data;
 
-@Getter @Setter
-public class Usuario extends DbModel {
+@Entity
+@Table(name = "TTSU_USUARIO")
+@Data
+public class Usuario {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private int id;
+
+    @Column(nullable = false, lenght = 100)
     private String matricula;
     private String nome;
     private String numero;
@@ -18,9 +27,9 @@ public class Usuario extends DbModel {
 
     public Usuario(int id, String matricula, String nome, String numero, 
                    String serie, String email, NivelPerm nivelPerm, String senha) {
-                    
-        super(id);
 
+        //super(id);
+        this.id = id
         this.matricula = matricula;
         this.nome = nome;
         this.numero = numero;
