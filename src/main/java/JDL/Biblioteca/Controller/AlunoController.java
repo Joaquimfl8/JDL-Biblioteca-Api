@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/alunos")
-public class StudentController {
+public class AlunoController {
     
     @GetMapping("/nomes")
-    public String getStudentName() {
-        return "nome daora";
+    public String getAluno(@RequestParam int id) {
+        return ;
     }
 
     @GetMapping("/nomes")
     public String postStudentName(@RequestParam String nome) {
-        return nome;
+        return ;
     }
 }
