@@ -1,56 +1,60 @@
 package JDL.Biblioteca.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import java.sql.Date;
+import java.time.LocalDate;
+
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "TDER_LIVRO")
+@Table(name = "tder_livro")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Livro {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_LivroPK")
+    private Integer idLivroPk;
 
-    @Column(nullable = false, length = 100)
-    private String titulo;
+    @Column(name = "TDER_nmLivro", nullable = false)
+    private String nomeLivro;
 
-    @Column(nullable = false, length = 100)
-    private String autor;
+    @Column(name = "TDER_nmAutor", nullable = false)
+    private String nomeAutor;
 
-    @Column(nullable = false, length = 1500)
+    @Column(name = "TDER_dsSinopse", nullable = false)
     private String sinopse;
 
-    @Column(nullable = false, length = 50)
-    private String capa;
+    @Column(name = "TDER_imgCapa", nullable = false)
+    private String imgCapa;
 
-    @Column(nullable = false, length = 100)
-    private String editora;
+    @Column(name = "TDER_nmEditora", nullable = false)
+    private String nomeEditora;
 
-    @Column(nullable = false, length = 100)
-    private String edicao;
+    @Column(name = "TDER_nrEdicao", nullable = false)
+    private Integer nrEdicao;
 
-    @Column(nullable = false)
-    private int ano;
+    @Column(name = "TDER_nrAno", nullable = false)
+    private LocalDate nrAno;
 
-    @Column(nullable = false, length = 100)
-    private int disponiveis;
-
-    @Column(nullable = false, length = 100)
+    @Column(name = "TDER_dsExemplares", nullable = false)
     private String exemplares;
 
-    @Column(nullable = false, length = 100)
+    @Column(name = "TDER_dsGenero", nullable = false)
     private String genero;
 
-    @Column(nullable = false, length = 100)
-    private String status;
+    @Column(name = "TDER_dsStatus", nullable = false)
+    private String statusLivro;
+
+    @ManyToOne
+    @JoinColumn(name = "TTEP_Emprestimo_id_Emprestimo_PK", nullable = false)
+    private Emprestimo emprestimo;
+
+    @ManyToOne
+    @JoinColumn(name = "TAUT_Autor_idTAUT_Autor", nullable = false)
+    private Autor autor;
 }

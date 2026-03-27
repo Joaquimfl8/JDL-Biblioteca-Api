@@ -6,34 +6,41 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "TDER_LIVRO")
+@Table(name = "ttep_emprestimo")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Emprestimo {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_Emprestimo_PK")
+    private Integer idEmprestimoPk;
 
-    @Column(nullable = false)
-    private LocalDate dataEmprestimo;
-    
-    @Column(nullable = false)
-    private LocalDate dataDevolucao;
+    @Column(name = "TTEP_dtEmprestimo", nullable = false)
+    private LocalDate dtEmprestimo;
 
-    @Column(nullable = false)
-    private int qtDiasEmprestados;
+    @Column(name = "TTEP_dtDevolucao", nullable = false)
+    private LocalDate dtDevolucao;
 
-    @Column(nullable = false)
-    private double precoDiaria;
+    @Column(name = "TTEP_QtdiasEmprestados", nullable = false)
+    private Integer qtdDiasEmprestados;
 
-    @Column(nullable = false)
-    private int qtDiasAtrasados;
+    @Column(name = "TTEP_PrecoDiaria", nullable = false)
+    private Float precoDiaria;
+
+    @Column(name = "TTEP_QtdiasAtrasados", nullable = false)
+    private Integer qtdDiasAtrasados;
+
+    @ManyToOne
+    @JoinColumn(name = "TBTS_Status_id_Status_PK", nullable = false)
+    private Status status;
 }

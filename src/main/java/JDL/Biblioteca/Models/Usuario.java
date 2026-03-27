@@ -8,41 +8,51 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "TTSU_USUARIO")
+@Table(name = "tusu_usuario")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Usuario {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_Usuario_PK")
+    private Integer idUsuarioPk;
 
-    @Column(nullable = false, length = 100, unique = true)
-    private String matricula;
+    @Column(name = "TUSU_nrMatricula", nullable = false)
+    private Integer matricula;
 
-    @Column(nullable = false, length = 100)
+    @Column(name = "TUSU_nmNome", nullable = false)
     private String nome;
 
-    @Column(nullable = false, length = 20)
-    private String numero;
+    @Column(name = "TUSU_nrTelefone", nullable = false)
+    private String telefone;
 
-    @Column(nullable = false, length = 3)
+    @Column(name = "TUSU_nrSerie", nullable = false)
     private String serie;
 
-    @Column(nullable = false, length = 100, unique = true)
+    @Column(name = "TUSU_dsEmail", nullable = false)
     private String email;
-    
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 20)
-    private NivelPerm nivelPerm;
 
-    @Column(nullable = false, length = 250)
+    @Column(name = "TUSU_dsNivelPerm", nullable = false)
+    private String nivelPerm;
+
+    @Column(name = "TUSU_dsSenha", nullable = false)
     private String senha;
+
+    @ManyToOne
+    @JoinColumn(name = "TTEP_Emprestimo_id_Emprestimo_PK", nullable = false)
+    private Emprestimo emprestimo;
+
+    @ManyToOne
+    @JoinColumn(name = "TTSU_TipoUsuario_id_TipoUsuario_PK", nullable = false)
+    private TipoUsuario tipoUsuario;
 }
