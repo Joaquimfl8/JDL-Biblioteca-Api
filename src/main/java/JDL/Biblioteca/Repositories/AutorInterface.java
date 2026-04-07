@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import JDL.Biblioteca.Models.*;
 
 @Repository
-public interface AutorInterface extends JpaRepository<Livro, Integer> { 
+public interface AutorInterface extends JpaRepository<Autor, Integer> { 
     
 }
