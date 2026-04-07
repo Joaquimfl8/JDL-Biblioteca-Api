@@ -11,6 +11,7 @@ import JDL.Biblioteca.Models.Emprestimo;
 public interface EmprestimoInterface extends JpaRepository<Emprestimo, Integer> {
 
     List<Emprestimo> findByStatusIdStatusPk(Integer idStatusPk);
+    // da não
     List<Emprestimo> findByDtEmprestimoBetween(LocalDate startDate, LocalDate endDate);
     List<Emprestimo> findByDtDevolucaoBetween(LocalDate startDate, LocalDate endDate);
     List<Emprestimo> findByQtdDiasAtrasadosGreaterThan(Integer diasAtrasados);
